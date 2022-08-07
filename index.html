@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/41955cb633.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="error">
+        <div class="hidden-text"></div>
+        <div class="error-title">Error.dll</div>
+        <div class="error-wrap">
+          <div class="error-block">
+            <div class="error-img">
+              <img src="/error.svg" alt="error" />
+            </div>
+            <div class="error-text">
+              Произошла ошибка при открытие браузера - проверка на адекватность,
+              Ты дурак?
+            </div>
+          </div>
+          <div class="error-answer">
+            <button class="error-btn error-answer-yes">Да</button>
+            <button class="error-btn error-answer-no">Нет</button>
+          </div>
+        </div>
+        <div class="error-close">X</div>
+      </div>
+    </div>
+
+    <script>
+      let errorClose = document.querySelector(".error-close"),
+        error = document.querySelector(".error"),
+        wrapper = document.querySelector(".wrapper"),
+        errorAnswerNo = document.querySelector(".error-answer-no"),
+        errorAnswerYes = document.querySelector(".error-answer-yes"),
+        move = document.querySelector(".move"),
+        move2 = document.querySelector(".move2"),
+        move3 = document.querySelector(".move3"),
+        move4 = document.querySelector(".move4"),
+        move5 = document.querySelector(".move5");
+      errorAnswerYes.addEventListener("click", () => {
+        errorAnswerYes.style.opacity = "0";
+        errorAnswerYes.style.cursor = "auto";
+      });
+      errorAnswerNo.addEventListener("click", () => {
+        if (errorAnswerNo.classList.contains("move5")) {
+          alert(
+            "КРАСАВА 12 из 10, просто лучший в мире. От тебя невозможно оторвать глаз... а теперь иди работай"
+          );
+          error.style.display = "none";
+          wrapper.style.backgroundImage = "url(./what.jpg)";
+          setTimeout(() => {
+            window.close();
+          }, 100);
+        } else if (errorAnswerNo.classList.contains("move4")) {
+          errorAnswerNo.classList.add("move5");
+          errorAnswerNo.classList.remove("move3");
+          errorAnswerNo.classList.remove("move4");
+          errorAnswerNo.addEventListener("mouseenter", () => {
+            setTimeout(() => {
+              errorAnswerNo.textContent = "Да";
+            }, 300);
+          });
+          errorAnswerNo.addEventListener("mouseleave", () => {
+            errorAnswerNo.textContent = "Нет";
+          });
+        } else if (errorAnswerNo.classList.contains("move3")) {
+          errorAnswerNo.classList.add("move4");
+          errorAnswerNo.classList.remove("move3");
+        } else if (errorAnswerNo.classList.contains("move2")) {
+          errorAnswerNo.classList.add("move3");
+          errorAnswerNo.classList.remove("move2");
+        } else if (errorAnswerNo.classList.contains("move")) {
+          errorAnswerNo.classList.add("move2");
+        }
+        errorAnswerNo.classList.add("move");
+      });
+
+      errorClose.addEventListener("click", () => {
+        new_window = window.open("http://127.0.0.1:5500/index.html");
+      });
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        height: 100%;
+        min-height: 100%;
+        font-weight: 400;
+        background-color: #ffffff;
+        color: #000;
+      }
+      .wrapper {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-image: url(./what.jpg); */
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .error {
+        position: relative;
+        max-width: 800px;
+        border: 1px solid rgba(0, 0, 0, 0.562);
+        background-color: #b7d8f8;
+        border-radius: 4px;
+        padding: 8px;
+      }
+      .error-wrap {
+        border: 1px solid rgba(0, 0, 0, 0.212);
+      }
+      .error-img {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      .error-img img {
+        width: 50px;
+      }
+      .error-block {
+        background: #fff;
+        padding: 30px;
+        display: flex;
+      }
+      .error-text {
+        max-width: 400px;
+        font-size: 18px;
+      }
+      .error-answer {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f0f0f0;
+        padding: 10px 40px;
+      }
+      .error-btn {
+        position: relative;
+        min-width: 80px;
+        height: 35px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .error-close {
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        line-height: 20px;
+        top: 0;
+        right: 10px;
+        background: #cd4a36;
+        color: #fff;
+        text-align: center;
+        border-radius: 0 0 4px 4px;
+        cursor: pointer;
+      }
+      .error-close:hover {
+        background-color: #ee2c0e;
+      }
+
+      /* Js */
+      .move {
+        right: 100px;
+      }
+      .move2 {
+        right: 200px;
+        top: 125px;
+      }
+      .move3 {
+        right: 150px;
+        bottom: 80px;
+        top: initial;
+      }
+      .move4 {
+        right: -153px;
+        bottom: 250px;
+      }
+      .move5 {
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </body>
+</html>
