@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <title>Проверка на адекватность</title>
-    <link rel="shortcut icon" href="/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./icon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="wrapper">
@@ -19,7 +19,7 @@
         <div class="error-wrap">
           <div class="error-block">
             <div class="error-img">
-              <img src="/error.svg" alt="error" />
+              <img src="./error.svg" alt="error" />
             </div>
             <div class="error-text">
               Произошла ошибка при открытие браузера - проверка на адекватность,
@@ -67,7 +67,7 @@
           errorAnswerNo.addEventListener("mouseenter", () => {
             setTimeout(() => {
               errorAnswerNo.textContent = "Да";
-            }, 300);
+            }, 500);
           });
           errorAnswerNo.addEventListener("mouseleave", () => {
             errorAnswerNo.textContent = "Нет";
