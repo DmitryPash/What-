@@ -59,7 +59,7 @@
           wrapper.style.backgroundImage = "url(./what.jpg)";
           setTimeout(() => {
             window.close();
-          }, 100);
+          }, 600);
         } else if (errorAnswerNo.classList.contains("move4")) {
           errorAnswerNo.classList.add("move5");
           errorAnswerNo.classList.remove("move3");
@@ -67,7 +67,7 @@
           errorAnswerNo.addEventListener("mouseenter", () => {
             setTimeout(() => {
               errorAnswerNo.textContent = "Да";
-            }, 500);
+            }, 300);
           });
           errorAnswerNo.addEventListener("mouseleave", () => {
             errorAnswerNo.textContent = "Нет";
